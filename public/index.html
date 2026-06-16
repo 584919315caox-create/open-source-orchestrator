@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Open Source Orchestrator</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Open Source Orchestrator</p>
+          <h1>把开源项目串联成可复用工作流</h1>
+          <p class="subtitle">
+            用统一的连接器格式管理输入、输出和执行日志。第一版先跑通“网页抓取 → 摘要 → 关键词 → Markdown导出”。
+          </p>
+        </div>
+        <div class="hero-card">
+          <span class="status-dot"></span>
+          <span>本地 MVP 已就绪，可扩展 Docker、队列和远程 GPU 节点</span>
+        </div>
+      </section>
+
+      <section class="grid">
+        <aside class="panel connectors-panel">
+          <div class="panel-header">
+            <h2>连接器</h2>
+            <button id="refreshBtn" class="ghost">刷新</button>
+          </div>
+          <div id="connectors" class="connector-list"></div>
+        </aside>
+
+        <section class="panel workflow-panel">
+          <div class="panel-header">
+            <h2>工作流 JSON</h2>
+            <div class="button-row">
+              <button id="loadExampleBtn" class="ghost">载入示例</button>
+              <button id="runBtn">运行工作流</button>
+            </div>
+          </div>
+          <textarea id="workflowEditor" spellcheck="false"></textarea>
+        </section>
+
+        <section class="panel result-panel">
+          <div class="panel-header">
+            <h2>运行结果</h2>
+            <span id="runStatus" class="badge">等待运行</span>
+          </div>
+          <div id="logs" class="logs empty">点击“运行工作流”后，这里会显示每一步日志。</div>
+          <div class="artifact">
+            <h3>最终 Markdown</h3>
+            <pre id="artifactOutput">暂无输出</pre>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
